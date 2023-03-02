@@ -7,12 +7,12 @@ export default function Cards(props) {
       <div>
          {characters.map((c) => {
             return (
-            <Card
+               <Card
                name={c.name}
                species={c.species}
                gender={c.gender}
                image={c.image}
-               onClose={() => alert('emulamos que se cierra la card')}
+               onClose={() => alert('Are you deleting to '+c.name)}
                onClic={() => alert("Próximamente estaremos apliando la imagen y la información")}
             />)
          })

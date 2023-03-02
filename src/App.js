@@ -1,5 +1,5 @@
 //import logo from './logo.svg';
-import './App.css';
+import './estilos/App.css';
 import Card from './components/Card'
 import Cards from './components/Cards'
 import SearchBar from './components/SearchBar.jsx';
@@ -14,7 +14,7 @@ function App() {
           species={Rick.species}
           gender={Rick.gender}
           image={Rick.image}
-          onClose={() => alert('You can not close the Primary Card')}
+          onClose={() => alert('You cannot close to '+Rick.name)}
           onClic={() => alert("Soon, we'll be zooming this information")}
         />
         <Card
@@ -22,7 +22,7 @@ function App() {
           species={Morty.species}
           gender={Morty.gender}
           image={Morty.image}
-          onClose={() => alert('You can not close the Secondary Card')}
+          onClose={() => alert('You cannot close to '+Morty.name)}
           onClic={() => alert("Soon, we'll be zooming this information")}
         />
       </div>
