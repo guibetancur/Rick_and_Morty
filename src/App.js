@@ -9,6 +9,7 @@ function App() {
   return (
     <div className='App' style={{ padding: '25px' }}>
       <div>
+        <h2>Leading Characters</h2>
         <Card
           name={Rick.name}
           species={Rick.species}
@@ -27,11 +28,13 @@ function App() {
         />
       </div>
       <hr />
+      <h2>Secondary Characters</h2>
       <div>
         <Cards
           characters={characters}
         />
       </div>
+      <hr/>
       <div>
       <SearchBar
           onSearch={(characterID) => window.alert(characterID)}
