@@ -10,6 +10,12 @@
    margin-top: 5px;
    cursor: pointer;
 }
+.app {
+   background-color: red;
+}
+.appdk {
+   background-color: blue;
+}
 
 .card:hover {
    border: 5px solid white;

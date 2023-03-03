@@ -4,13 +4,24 @@ import Card from './components/Card'
 import Cards from './components/Cards'
 import SearchBar from './components/SearchBar.jsx';
 import characters, { Rick, Morty } from './data'
+import { useState } from 'react';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
+  const toggleDarkMode = () => setDarkMode(!darkMode)
   return (
-    <div className='App' style={{ padding: '25px' }}>
+    <div className={darkMode ? 'App' : 'Applt'} style={{ padding: '25px' }}>
+      <div>
+      <SearchBar
+          onSearch={(characterID) => window.alert(characterID)}
+        />
+      </div>
+      <div>
+        <button onClick={toggleDarkMode}>{darkMode ? 'Light mode' : 'Dark mode'}</button>
+      </div>
       <div>
         <h2>Leading Characters</h2>
-        <Card
+        <Card className={darkMode ? 'App' : 'Applt'}  // revisar por qué no sostiene el valor de darkMode
           name={Rick.name}
           species={Rick.species}
           gender={Rick.gender}
@@ -35,11 +46,6 @@ function App() {
         />
       </div>
       <hr/>
-      <div>
-      <SearchBar
-          onSearch={(characterID) => window.alert(characterID)}
-        />
-      </div>
     </div>
   )
 }

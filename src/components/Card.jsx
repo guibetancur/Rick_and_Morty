@@ -1,6 +1,7 @@
 import '../estilos/card.css'
 
 export default function Card(props) {
+   console.log(props)
    return (
       <div className="card floating">
      {/* <button onClick={props.onClose}>X</button> */}

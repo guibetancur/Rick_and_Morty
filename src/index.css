@@ -7,8 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: aqua;
   /* background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),url("https://cdn.pixabay.com/photo/2017/08/15/08/23/stars-2643089_1280.jpg"); */
-  background-image: url("https://images.pexels.com/photos/3279307/pexels-photo-3279307.jpeg");
-  background-size: cover;
 }
 body img {
   object-fit: cover;
