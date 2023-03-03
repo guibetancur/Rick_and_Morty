@@ -4,9 +4,9 @@ export default function Card(props) {
    console.log(props)
    return (
       <div className="card floating">
-     {/* <button onClick={props.onClose}>X</button> */}
-         <button onClick={props.onClose}>X{props.x}</button>
-         <div onClick={props.onClic}>
+         {/* <div className={darkMode ? 'App' : 'Applt'}> */}
+         <button onClick={props.onClose}>X</button>
+         <div onClick={props.touch}>
             <hr />
             <label>Name:</label>
             <h2>{props.name}</h2>

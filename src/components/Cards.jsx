@@ -13,7 +13,7 @@ export default function Cards(props) {
                gender={c.gender}
                image={c.image}
                onClose={() => alert('Are you deleting to '+c.name)}
-               onClic={() => alert("Próximamente estaremos apliando la imagen y la información")}
+               touch={() => alert("Próximamente estaremos apliando la imagen y la información")}
             />)
          })
          }

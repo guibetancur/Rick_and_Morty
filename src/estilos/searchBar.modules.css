@@ -1,0 +1,21 @@
+.head {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   border: red solid 5px;
+   background-color: yellow;
+   height: 4rem;
+}
+
+#divNav {
+   width: 80%;
+   background-color: var(--colorFondo);
+   color: var(--colorTexto);
+   /* border: white 2px solid; */
+}
+
+#divSearch {
+   width: 20%;
+   height: 4rem;
+   /* border: 2px blue solid; */
+}

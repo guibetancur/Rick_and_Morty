@@ -1,20 +1,22 @@
+.App {
+   background-color: var(--colorFondo);
+   color: var(--colorTexto);
+}
+.Applt {
+   background-color: blue;
+}
+
 .card {
    display: inline-block;
    border-radius: 10%;
    width: 22%;
    box-shadow: 0 0 20px rgb(207, 227, 235);
-   /*Sombre gradiente */
+   /*Sombra gradiente */
    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
    /*Elimina el color del fondo*/
    margin-left: 30px;
    margin-top: 5px;
    cursor: pointer;
-}
-.app {
-   background-color: red;
-}
-.appdk {
-   background-color: blue;
 }
 
 .card:hover {

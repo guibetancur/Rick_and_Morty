@@ -12,9 +12,7 @@ function App() {
   return (
     <div className={darkMode ? 'App' : 'Applt'} style={{ padding: '25px' }}>
       <div>
-      <SearchBar
-          onSearch={(characterID) => window.alert(characterID)}
-        />
+      <SearchBar onSearch={(characterID) => window.alert(characterID)}/>
       </div>
       <div>
         <button onClick={toggleDarkMode}>{darkMode ? 'Light mode' : 'Dark mode'}</button>
@@ -27,7 +25,7 @@ function App() {
           gender={Rick.gender}
           image={Rick.image}
           onClose={() => alert('You cannot close to '+Rick.name)}
-          onClic={() => alert("Soon, we'll be zooming this information")}
+          touch={() => alert("Soon, we'll be zooming this information")}
         />
         <Card
           name={Morty.name}
@@ -35,7 +33,7 @@ function App() {
           gender={Morty.gender}
           image={Morty.image}
           onClose={() => alert('You cannot close to '+Morty.name)}
-          onClic={() => alert("Soon, we'll be zooming this information")}
+          touch={() => alert("Soon, we'll be zooming this information")}
         />
       </div>
       <hr />
