@@ -19,3 +19,8 @@
    height: 4rem;
    /* border: 2px blue solid; */
 }
+
+#find {
+   color: black;
+   border-radius: 0%;
+}

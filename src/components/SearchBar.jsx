@@ -1,16 +1,19 @@
-import '../estilos/searchBar.modules.css'
+import '../estilos/searchBar.module.css'
 
 export default function SearchBar(props) {
    return (
       <div className="head">
          <div id='divNav'>
             <nav>
-               <h1>Dentro del nav</h1>
+               <a href="http://">Historia</a>
+               <a href="http://">Capítulos</a>
+               <a href="http://">Autores</a>
+               <a href="http://">Acerca de...</a>
             </nav>
          </div>
          <div id='divSearch'>
             <input type='search' />
-            <button onClick={() => props.onSearch('Id no encontrado')}>Add</button>
+            <button id='find' onClick={() => props.onSearch('Id no encontrado')}>Search</button>
          </div>
       </div>
    );
