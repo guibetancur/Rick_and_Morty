@@ -14,7 +14,7 @@ export default function Card(props) {
             <h2>{props.species}</h2>
             <label>Gender:</label>
             <h2>{props.gender}</h2>
-            <img src={props.image} alt="There aren't image" />
+            <img src={props.image} />
          </div>
       </div>
    );
