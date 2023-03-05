@@ -5,6 +5,8 @@ export default function Card(props) {
    return (
       <div className="card floating">
          {/* <div className={darkMode ? 'App' : 'Applt'}> */}
+         if (props.name==='Rick Sanchez') {
+         }
          <button onClick={props.onClose}>X</button>
          <div onClick={props.touch}>
             <hr />
@@ -14,7 +16,7 @@ export default function Card(props) {
             <h2>{props.species}</h2>
             <label>Gender:</label>
             <h2>{props.gender}</h2>
-            <img src={props.image} />
+            <img src={props.image} alt="" />
          </div>
       </div>
    );

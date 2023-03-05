@@ -4,6 +4,7 @@
 }
 .Applt {
    background-color: blue;
+   color: brown;
 }
 
 .card {
@@ -20,6 +21,7 @@
 }
 
 .card:hover {
+   animation-duration: 0s;
    border: 5px solid white;
    box-shadow: none;
    background: linear-gradient(70deg, pink, blue);
@@ -51,7 +53,7 @@ button {
 
 img {
    width: 100%;
-   border-radius: 10%;
+   border-radius: 0 0 10% 10%;
 }
 
 .floating {
