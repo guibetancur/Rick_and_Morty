@@ -5,8 +5,6 @@ export default function Card(props) {
    return (
       <div className="card floating">
          {/* <div className={darkMode ? 'App' : 'Applt'}> */}
-         if (props.name==='Rick Sanchez') {
-         }
          <button onClick={props.onClose}>X</button>
          <div onClick={props.touch}>
             <hr />

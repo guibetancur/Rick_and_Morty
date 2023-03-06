@@ -1,4 +1,4 @@
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './estilos/App.css';
 import Card from './components/Card'
 import Cards from './components/Cards'
@@ -12,10 +12,14 @@ function App() {
   return (
     <div className={darkMode ? 'App' : 'Applt'} style={{ padding: '25px' }}>
       <div>
-      <SearchBar onSearch={(characterID) => window.alert(characterID)}/>
+        <SearchBar onSearch={(characterID) => window.alert(characterID)} />
       </div>
       <div>
-        <button onClick={toggleDarkMode}>{darkMode ? 'Light mode' : 'Dark mode'}</button>
+        <label class="switch">
+          <input type="checkbox" onClick={toggleDarkMode}></input>
+            <span class="slider"></span>
+        </label>
+        {/* <button onClick={toggleDarkMode}>{darkMode ? 'Light mode' : 'Dark mode'}</button> */}
       </div>
       <div>
         <h2>Leading Characters</h2>
@@ -24,16 +28,16 @@ function App() {
           species={Rick.species}
           gender={Rick.gender}
           image={Rick.image}
-          onClose={() => alert('You cannot close to '+Rick.name)}
-          touch={() => alert("Soon, we'll be zooming this information")}
+          onClose={() => alert("You can't shut down " + Rick.name)}
+          touch={() => alert("Soon we'll be expanding this information")}
         />
         <Card
           name={Morty.name}
           species={Morty.species}
           gender={Morty.gender}
           image={Morty.image}
-          onClose={() => alert('You cannot close to '+Morty.name)}
-          touch={() => alert("Soon, we'll be zooming this information")}
+          onClose={() => alert("You can't shut down " + Morty.name)}
+          touch={() => alert("Soon we'll be expanding this information")}
         />
       </div>
       <hr />
@@ -43,7 +47,11 @@ function App() {
           characters={characters}
         />
       </div>
-      <hr/>
+      <hr />
+      <footer>
+        <h4>© Todos los derechos reservados</h4>
+        <h4>Guillermo Betancur - 2023</h4>
+      </footer>
     </div>
   )
 }

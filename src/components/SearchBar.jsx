@@ -12,7 +12,7 @@ export default function SearchBar(props) {
             </nav>
          </div>
          <div id='divSearch'>
-            <input type='search' />
+            <input type="search" name="" id="" />
             <button id='find' onClick={() => props.onSearch('Id no encontrado')}>Search</button>
          </div>
       </div>
