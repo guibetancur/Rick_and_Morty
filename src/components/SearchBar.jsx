@@ -1,5 +1,5 @@
-import '../estilos/SearchBar.module.css'
 import { useRef, useState } from 'react'
+import styles from '../estilos/SearchBar.module.css'
 
 
 export default function SearchBar(props) {
