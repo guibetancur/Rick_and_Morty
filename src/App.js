@@ -2,50 +2,58 @@ import logo from './logo.svg';
 import './estilos/App.css';
 import Card from './components/Card'
 import Cards from './components/Cards'
-import SearchBar from './components/SearchBar.jsx';
-import characters, { Rick, Morty } from './data'
-import { useState } from 'react';
+// import SearchBar from './components/SearchBar.jsx';
+import NavBar from './components/NavBar' // Llamará a SearchBar
+// import characters, { Rick, Morty } from './data'
+//import characters from './data'
+import { useState, useRef } from 'react';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
   const toggleDarkMode = () => setDarkMode(!darkMode)
+  const [characters, setCharacters] = useState([])
+
+  function onSearch(id) {
+    fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.name) {
+          let exists = characters.find((e) => e.id === data.id)
+          if (exists) alert('The character ' + id + ' already exists')
+          else {
+            setCharacters((oldChars) => [...oldChars, data])
+            alert('Character added')
+          }
+        } else {
+          window.alert(`There are only 826 characters`)
+        }
+        let add = document.getElementById('add')
+        add.value = ''
+        add.focus()
+      })
+  }
+
+  function onClose(id) {
+    setCharacters((data) => {
+      let add = document.getElementById('add')
+      add.focus()
+      return data.filter((e) => e.id !== id)
+    })
+  }
   return (
+    console.log("Characters:", characters),
     <div className={darkMode ? 'App' : 'Applt'} style={{ padding: '25px' }}>
       <div>
-        <SearchBar onSearch={(characterID) => window.alert(characterID)} />
+        <NavBar onSearch={onSearch} />
       </div>
       <div>
         <label class="switch">
           <input type="checkbox" onClick={toggleDarkMode}></input>
-            <span class="slider"></span>
+          <span class="slider"></span>
         </label>
-        {/* <button onClick={toggleDarkMode}>{darkMode ? 'Light mode' : 'Dark mode'}</button> */}
       </div>
       <div>
-        <h2>Leading Characters</h2>
-        <Card className={darkMode ? 'App' : 'Applt'}  // revisar por qué no sostiene el valor de darkMode
-          name={Rick.name}
-          species={Rick.species}
-          gender={Rick.gender}
-          image={Rick.image}
-          onClose={() => alert("You can't shut down " + Rick.name)}
-          touch={() => alert("Soon we'll be expanding this information")}
-        />
-        <Card
-          name={Morty.name}
-          species={Morty.species}
-          gender={Morty.gender}
-          image={Morty.image}
-          onClose={() => alert("You can't shut down " + Morty.name)}
-          touch={() => alert("Soon we'll be expanding this information")}
-        />
-      </div>
-      <hr />
-      <h2>Secondary Characters</h2>
-      <div>
-        <Cards
-          characters={characters}
-        />
+        <Cards characters={characters} onClose={onClose} />
       </div>
       <hr />
       <footer>

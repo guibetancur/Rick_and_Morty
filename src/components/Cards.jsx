@@ -1,5 +1,5 @@
 import Card from './Card';
-import '../estilos/cards.css'
+import '../estilos/Cards.module.css'
 
 export default function Cards(props) {
    const { characters } = props;
@@ -8,12 +8,13 @@ export default function Cards(props) {
          {characters.map((c) => {
             return (
                <Card
+               id={c.id}
                name={c.name}
                species={c.species}
                gender={c.gender}
                image={c.image}
-               onClose={() => alert('Are you deleting to '+c.name)}
-               touch={() => alert("Próximamente estaremos apliando la imagen y la información")}
+               onClose={() => props.onClose(c.id)}
+               // touch={() => alert("Soon we'll be expanding information about "+c.name)}
             />)
          })
          }
