@@ -7,6 +7,14 @@ import NavBar from './components/NavBar' // Llamará a SearchBar
 // import characters, { Rick, Morty } from './data'
 //import characters from './data'
 import { useState, useRef } from 'react';
+var msg
+
+function alerta(message) {
+  console.log('Mensaje=', message)
+  msg = document.getElementById('msg')
+  msg.innerText = message
+  setTimeout(() => msg.innerText = '', 5000);
+}
 
 function App() {
   const [darkMode, setDarkMode] = useState(false)
@@ -19,13 +27,13 @@ function App() {
       .then((data) => {
         if (data.name) {
           let exists = characters.find((e) => e.id === data.id)
-          if (exists) alert('The character ' + id + ' already exists')
+          if (exists) alerta('Character with id#' + id+' ('+ data.name + ') already exists')
           else {
             setCharacters((oldChars) => [...oldChars, data])
-            alert('Character added')
+            alerta('Character ' + data.name + ' added')
           }
         } else {
-          window.alert(`There are only 826 characters`)
+          alerta(`There are only 826 characters`)
         }
         let add = document.getElementById('add')
         add.value = ''
@@ -40,16 +48,18 @@ function App() {
       return data.filter((e) => e.id !== id)
     })
   }
+
   return (
-    console.log("Characters:", characters),
+    // console.log("Characters:", characters),
     <div className={darkMode ? 'App' : 'Applt'} style={{ padding: '25px' }}>
+        <span id='msg'></span>
       <div>
         <NavBar onSearch={onSearch} />
       </div>
       <div>
-        <label class="switch">
+        <label className="switch">
           <input type="checkbox" onClick={toggleDarkMode}></input>
-          <span class="slider"></span>
+          <span className="slider"></span>
         </label>
       </div>
       <div>

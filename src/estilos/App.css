@@ -39,6 +39,12 @@
   }
 }
 
+#id {
+  text-decoration: overline;
+  lighting-color: #61dafb;
+}
+
+
 .Applt {
   text-align: center;
   background-image: url("https://images.pexels.com/photos/4166011/pexels-photo-4166011.jpeg?auto=compress&cs=tinysrgb&w=1600");
