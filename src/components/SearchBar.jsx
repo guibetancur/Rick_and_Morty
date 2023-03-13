@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 // import styles from '../estilos/SearchBar.module.css'
 
-
 export default function SearchBar(props) {
    const [character, setCharacter] = useState([])
    const [message, setMessage] = useState('') // Para no tener que usar el botón
@@ -34,6 +33,7 @@ export default function SearchBar(props) {
                onChange={(e) => handleInput(e)} value={character} />
             <button id='find' onClick={() => props.onSearch(character)}>Add</button> */}
          </div>
+         <button onClick={()=>props.random()}>Random</button>
       {/* <a href={buttonNameRef} onClick={handleButtonClick}></a> */}
       </div>
    );

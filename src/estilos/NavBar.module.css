@@ -1,4 +1,8 @@
 .nav {
+   top: 0%;
+   position: fixed; /*Para que no se mueva*/
+   width: 100%; /*Cubre todo el ancho de la pantalla*/
+   z-index: 100; 
    background: darkcyan;
    display: flex;
    flex-direction: row;

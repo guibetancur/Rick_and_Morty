@@ -14,6 +14,7 @@ export default function Cards(props) {
                gender={c.gender}
                image={c.image}
                onClose={() => props.onClose(c.id)}
+               random={() => props.random()}
                // touch={() => alert("Soon we'll be expanding information about "+c.name)}
             />)
          })

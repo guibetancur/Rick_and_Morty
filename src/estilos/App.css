@@ -1,9 +1,24 @@
+.cards {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+}
+
 .App {
   text-align: center;
   background-image: url("https://images.pexels.com/photos/3279307/pexels-photo-3279307.jpeg");
+  background-attachment: fixed;
   background-size: cover;
+  height: 100vh;
+  margin: 0px;
 }
-
+/* body {
+  background: url(url_tu_imagen); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  height: 100vh;
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -50,6 +65,8 @@
   background-image: url("https://images.pexels.com/photos/4166011/pexels-photo-4166011.jpeg?auto=compress&cs=tinysrgb&w=1600");
   background-size: cover;
   color: darkgoldenrod;
+  height: 100vw;
+  margin: 0px;
 }
 
 .Applt-logo {
@@ -89,8 +106,14 @@
 
 footer {
   text-align: right;
-  color: rgb(160, 24, 24);
+  color: rgb(77, 37, 37);
   margin-top: 0%;
+  /* position: fixed; Para que no se mueva */
+  width: 95%; /*Cubre todo el ancho de la pantalla*/
+  z-index: 100; 
+  position: static;
+  margin-bottom: 0;
+  bottom: 0;
 }
 
 /* The switch - the box around the slider */

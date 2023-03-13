@@ -1,16 +1,21 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './estilos/App.css';
-import Card from './components/Card'
+// import Card from './components/Card'
 import Cards from './components/Cards'
+import Login from './components/Login'
+import About from './components/About'
+import Detail from './components/Detail'
 // import SearchBar from './components/SearchBar.jsx';
 import NavBar from './components/NavBar' // Llamará a SearchBar
 // import characters, { Rick, Morty } from './data'
 //import characters from './data'
 import { useState, useRef } from 'react';
+//import OnSearch from './components/OnSearch'
+//import OnClose from './components/OnSearch'
+import { Routes, Route } from 'react-router-dom'
 var msg
 
 function alerta(message) {
-  console.log('Mensaje=', message)
   msg = document.getElementById('msg')
   msg.innerText = message
   setTimeout(() => msg.innerText = '', 5000);
@@ -26,19 +31,27 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
+          console.log(characters)
           let exists = characters.find((e) => e.id === data.id)
-          if (exists) alerta('Character with id#' + id+' ('+ data.name + ') already exists')
+          if (exists) alerta('Character with id#' + id + ' (' + data.name + ') already exists')
           else {
-            setCharacters((oldChars) => [...oldChars, data])
+            setCharacters((oldChars) => [data, ...oldChars])
             alerta('Character ' + data.name + ' added')
           }
         } else {
           alerta(`There are only 826 characters`)
         }
         let add = document.getElementById('add')
-        add.value = ''
-        add.focus()
+        add.select()
+        characters.e.preventDefault()
+        // add.value = ''
+        // add.focus()
       })
+  }
+
+  function random() {
+    alert('function called')
+    // onSearch(parseInt(Math.random()*826))
   }
 
   function onClose(id) {
@@ -51,10 +64,12 @@ function App() {
 
   return (
     // console.log("Characters:", characters),
-    <div className={darkMode ? 'App' : 'Applt'} style={{ padding: '25px' }}>
-        <span id='msg'></span>
+    <div className={darkMode ? 'App' : 'Applt'} style={{ marginTop: '20px' }}>
+      <span id='msg'></span>
       <div>
-        <NavBar onSearch={onSearch} />
+        if (window.location.pathname === '/') {
+          <NavBar onSearch={onSearch} random={random} />
+        }
       </div>
       <div>
         <label className="switch">
@@ -62,13 +77,19 @@ function App() {
           <span className="slider"></span>
         </label>
       </div>
-      <div>
-        <Cards characters={characters} onClose={onClose} />
+      <div className='cards'>
+        <Routes>
+          <Route path='/' element={<Login />}></Route>
+          <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}></Route>
+          <Route path='/about' element={<About />}></Route>
+          <Route path='/detail/:detailId' element={<Detail />}></Route>
+          <Route path='/logout' element={<Login />}></Route>
+        </Routes>
       </div>
       <hr />
       <footer>
-        <h4>© Todos los derechos reservados</h4>
-        <h4>Guillermo Betancur - 2023</h4>
+        <h4>© All Rights Reserved</h4>
+        <h4>Guillermo Betancur - {new Date().getFullYear()}</h4>
       </footer>
     </div>
   )
