@@ -1,10 +1,10 @@
 import Card from './Card';
-import '../estilos/Cards.module.css'
+import styles from '../estilos/Cards.module.css'
 
 export default function Cards(props) {
    const { characters } = props;
    return (
-      <div>
+      <div className={styles.cards}>
          {characters.map((c) => {
             return (
                <Card
@@ -15,8 +15,7 @@ export default function Cards(props) {
                image={c.image}
                onClose={() => props.onClose(c.id)}
                random={() => props.random()}
-               // touch={() => alert("Soon we'll be expanding information about "+c.name)}
-            />)
+               />)
          })
          }
       </div>

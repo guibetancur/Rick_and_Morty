@@ -1,6 +1,7 @@
 .cards {
    display: flex;
-   flex-direction: column-reverse;
+   flex-direction: row-reverse;
    justify-content: center;
    align-items: center;
+   align-content: center;
 }
