@@ -18,8 +18,8 @@ export default function NavBar(props) {
          <Link to='/about'>
             <a href="about">About Me...</a>
          </Link>
-         <Link to='/logout'>
-            <a href="">Logout</a>
+         <Link to='/'>
+            <a href="/" on>Logout</a>
          </Link>
          <div>
             <SearchBar onSearch={props.onSearch} />

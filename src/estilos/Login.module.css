@@ -1,7 +1,14 @@
+.div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form {
    display: flex;
    flex-direction: column;
    align-items: center;
+   align-self: center;
    gap: 10px;
    padding-left: 2em;
    padding-right: 2em;
@@ -10,8 +17,8 @@
    border-radius: 25px;
    transition: .4s ease-in-out;
    max-width: min-content;
-   /* flex-wrap: nowrap; */
-   /* align-content: center; */
+   flex-wrap: nowrap;
+   align-content: center;
  }
  
  .form:hover {
@@ -111,4 +118,8 @@
  .button3:hover {
    background-color: red;
    color: white;
+ }
+
+ .danger {
+  color: red;
  }

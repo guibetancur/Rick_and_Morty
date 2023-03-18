@@ -1,5 +1,5 @@
 .cards {
-   display: flex;
+   display: flexbox;
    flex-direction: row-reverse;
    justify-content: center;
    align-items: center;

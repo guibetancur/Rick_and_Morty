@@ -1,18 +1,15 @@
 // import logo from './logo.svg';
 import './estilos/App.css';
-// import Card from './components/Card'
 import Cards from './components/Cards'
 import Login from './components/Login'
 import About from './components/About'
 import Detail from './components/Detail'
-// import SearchBar from './components/SearchBar.jsx';
 import NavBar from './components/NavBar' // Llamará a SearchBar
 // import characters, { Rick, Morty } from './data'
 //import characters from './data'
-import { useState, useRef } from 'react';
-//import OnSearch from './components/OnSearch'
-//import OnClose from './components/OnSearch'
-import { Routes, Route } from 'react-router-dom'
+import { useState, useRef, useEffect } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
+const location = useLocation
 var msg
 
 function alerta(message) {
@@ -22,16 +19,38 @@ function alerta(message) {
 }
 
 function App() {
+  const location = useLocation()
   const [darkMode, setDarkMode] = useState(false)
   const toggleDarkMode = () => setDarkMode(!darkMode)
   const [characters, setCharacters] = useState([])
+
+  // manejo de clave quemada solo para validar
+  const [access, setAccess] = useState(false)
+  const usrName = 'guibetancur@hotmail.com'
+  const pwd = 'Pezespada206*'
+  const navigate = useNavigate()
+
+  function login(userData) {
+    if (userData.password === pwd && userData.username === usrName) {
+      setAccess(true)
+      navigate('/home')
+    }
+  }
+  function logout() {
+    setAccess(false)
+    navigate('/')
+  }
+
+  useEffect(() => {
+    !access && navigate('/')
+  }, [access])
 
   function onSearch(id) {
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
-          console.log(characters)
+          // console.log(characters)
           let exists = characters.find((e) => e.id === data.id)
           if (exists) alerta('Character with id#' + id + ' (' + data.name + ') already exists')
           else {
@@ -43,7 +62,7 @@ function App() {
         }
         let add = document.getElementById('add')
         add.select()
-        characters.e.preventDefault()
+        // characters.e.preventDefault()
         // add.value = ''
         // add.focus()
       })
@@ -67,9 +86,9 @@ function App() {
     <div className={darkMode ? 'App' : 'Applt'} style={{ marginTop: '20px' }}>
       <span id='msg'></span>
       <div>
-        if (window.location.pathname === '/') {
-          <NavBar onSearch={onSearch} random={random} />
-        }
+        {/* {location.pathname ==="/" ? null : <NavBar onSearch={onSearch} />} */}
+        {window.location.pathname !== '/' && <NavBar onSearch={onSearch} logout={logout} random={random} />}
+
       </div>
       <div>
         <label className="switch">
@@ -79,11 +98,11 @@ function App() {
       </div>
       <div className='cards'>
         <Routes>
-          <Route path='/' element={<Login />}></Route>
+          <Route path='/' element={<Login login={login} />}></Route>
           <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}></Route>
           <Route path='/about' element={<About />}></Route>
           <Route path='/detail/:detailId' element={<Detail />}></Route>
-          <Route path='/logout' element={<Login />}></Route>
+          {/* <Route path='/logout' element={<Login />}></Route> */}
         </Routes>
       </div>
       <hr />

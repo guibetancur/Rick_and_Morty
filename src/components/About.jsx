@@ -10,7 +10,7 @@ export default function About() {
 			<ul className={styles.ul}>
 				<li className={styles.li}>"Mister Henry" - CEO</li>
 				<li className={styles.li}>Guillermo Betancur - GMO</li>
-				<li className={styles.li}>Tita, Blacky, Manchis and Leeloo - MAW</li>
+				<li className={styles.li}>Tita, Blacky, Manchis and Leeloo - MEW</li>
 				<li className={styles.li}>(My kittens who corrected my code every time they passed over my keyboard)</li>
 			</ul>
 			<h2 className={styles.h2}>Cronología</h2>

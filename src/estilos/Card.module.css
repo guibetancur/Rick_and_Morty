@@ -27,11 +27,11 @@
    background: linear-gradient(70deg, pink, blue);
 }
 
-male {
+.male {
    color: red;
 }
 
-female {
+.female {
    color: pink;
 }
 
@@ -76,4 +76,10 @@ img {
 .txt {
    text-align: center;
    color: aliceblue;
+}
+
+.x {
+   display: flex;
+   /* flex-direction: column;
+   align-items: end; */
 }
